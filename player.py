@@ -1,2 +1,2 @@
 # pull request 확인용
-print('im player1')
+print('player1')
