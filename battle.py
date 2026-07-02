@@ -1,1 +1,1 @@
-# battle.py
+print("전투를 시작합니다!")
