@@ -1,26 +1,8 @@
-"""
-Game module for the simple mob hunting game.
-
-This module defines a :class:`Game` class that orchestrates the player, monster,
-and battle manager.  It provides a text‑based menu driven by ``input()`` and
-runs a loop until the monster's HP reaches zero or the user chooses to exit.
-
-The implementation purposefully **does not modify** ``monster.py``, ``player.py``
-or ``battle.py`` – it only imports the expected symbols from those modules.
-If those modules define the required classes (e.g. ``Player``, ``Mob``/``Slime``
-and a ``BattleManager`` with a ``player_attack`` method) the game will operate
-correctly.  If they are placeholders the code will still import them without
-instantiating anything, allowing the developer to fill in the details later.
-"""
-
 from __future__ import annotations
 
 import sys
 from typing import Any
 
-# Import the expected symbols.  ``player`` and ``battle`` may be empty – the
-# imports are kept optional so that the file can be loaded even when the
-# modules are still under development.
 try:
     from player import Player  # type: ignore
 except Exception:  # pragma: no cover
@@ -40,20 +22,7 @@ except Exception:  # pragma: no cover
 
 
 class Game:
-    """Core game loop.
 
-    Parameters
-    ----------
-    player: Any
-        An instance representing the player.  The object is expected to provide
-        ``show_info()`` and ``attack(target)`` methods.
-    monster: Any
-        An instance representing the monster.  It must expose ``hp`` (int) and
-        ``show_info()`` methods.
-    battle_manager: Any
-        A manager that handles the combat logic.  It should at least expose a
-        ``player_attack(player, monster)`` method.
-    """
 
     def __init__(self, player: Any, monster: Any, battle_manager: Any) -> None:
         self.player = player
