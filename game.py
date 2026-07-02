@@ -123,8 +123,8 @@ if __name__ == "__main__":
 
     if Slime is not None:
         monster_obj = Slime("슬라임", 50, 10, 5)
-    elif Monster is not None:
-        monster_obj = Monster("몬스터", 50, 10, 5)
+    elif Mob is not None:
+        monster_obj = Mob("몬스터", 50, 10, 5)
     else:
         class DummyMonster:
             def __init__(self) -> None:
@@ -146,4 +146,3 @@ if __name__ == "__main__":
 
     game = Game(player_obj, monster_obj, battle_manager_obj)
     game.start()
-"
