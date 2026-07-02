@@ -4,6 +4,11 @@
 Creates a Player, a blue mushroom (BlueMushroom), a BattleManager, and starts the Game.
 """
 
+# Ensure stdout can handle Unicode characters printed by monster module during import
+import sys, io
+if sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+
 from monster import Mushroom as BlueMushroom
 from player import Player
 from battle import BattleManager
@@ -22,3 +27,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    
