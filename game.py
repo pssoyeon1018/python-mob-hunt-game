@@ -1,4 +1,5 @@
 from __future__ import annotations
+from random import choice
 
 import sys
 from typing import Any
@@ -76,16 +77,21 @@ class Game:
             elif choice == "2":
                 # Show player information.
                 try:
-                    self.player.show_info()  # type: ignore[attr-defined]
+                    # Preferred method
+                    self.player.show_info()            # type: ignore[attr-defined]
+                except AttributeError:
+                    # Fallback to .info() if that's the only method available
+                    self.player.info()                 # type: ignore[attr-defined]
                 except Exception as exc:  # pragma: no cover
                     print(f"플레이어 정보 조회 오류: {exc}")
 
             elif choice == "3":
                 # Show monster information.
                 try:
-                    self.monster.show_info()  # type: ignore[attr-defined]
+                    self.monster.info()           # type: ignore[attr-defined]
                 except Exception as exc:  # pragma: no cover
                     print(f"몬스터 정보 조회 오류: {exc}")
+
 
             elif choice == "4":
                 print("게임을 종료합니다.")
